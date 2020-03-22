@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "登陆";
+}
+<div>
+    <fieldset>
+        <legend>登陆</legend>
+        <div>
+            <fieldset>
+                <legend>code2Session</legend>
+                <form method="post" target="_blank">
+                    <input type="text" name="jsCode" placeholder="wx.login 返回的code" />
+                    <button asp-page-handler="auth_code2Session">获取OpenId和会话密钥</button>
+                </form>
+            </fieldset>
+            <fieldset>
+                <legend>解密用户数据</legend>
+                <form method="post" target="_blank">
+                    <input type="text" name="sessionKey" placeholder="wx.login 返回的code 发到后台获取的 sessionKey" style="width:60%" />
+                    <br />
+                    <input type="text" name="encryptedData" placeholder="wx.getUserInfo 返回的encryptedData" style="width:60%" />
+                    <br />
+                    <input type="text" name="iv" placeholder="wx.getUserInfo 返回的iv" style="width:60%" />
+                    <br />
+                    <button asp-page-handler="auth_getUserInfo">解密用户信息</button>
+                </form>
+            </fieldset>
+        </div>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>接口调用凭证</legend>
+        <div>
+            <fieldset>
+                <legend>getAccessToken</legend>
+                <form method="post" target="_blank">
+                    <button asp-page-handler="auth_getAccessToken">获取接口调用凭证</button>
+                </form>
+            </fieldset>
+        </div>
+    </fieldset>
+</div>
