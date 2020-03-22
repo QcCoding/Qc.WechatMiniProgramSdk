@@ -29,8 +29,8 @@ public void ConfigureServices(IServiceCollection services)
   //...
   services.AddWechatMiniProgramSdk<WechatMiniProgramSdk.DefaultWechatMiniProgramSdkHook>(opt =>
   {
-      opt.ApiKey = "Api Key";
-      opt.SecretKey = "Secret Key";
+      opt.AppId = "Api Key";
+      opt.AppSecret = "Secret Key";
   });
   //...
 }
